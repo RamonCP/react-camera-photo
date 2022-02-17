@@ -3,16 +3,35 @@ import './Camera/style.css'
 import './app.css'
 
 function App() {
-  const { getVideo, takeSnapshot, closePhoto, videoRef, photoRef } = useCamera()
+  const {
+    getVideo,
+    takeSnapshot,
+    closePhoto,
+    startCamera,
+    hasPhoto,
+    videoRef,
+    photoRef
+  } = useCamera()
 
   return (
     <>
       <div className='container'>
-        <button onClick={getVideo}>Start Camera</button>
-        <button onClick={takeSnapshot}>Take a photo</button>
-        <button onClick={closePhoto}>Close photo</button>
-        <video ref={videoRef} />
-        <canvas ref={photoRef} />
+        {!startCamera ? (
+          <button onClick={getVideo} className='start-camera'>
+            Start Camera
+          </button>
+        ) : (
+          <>
+            <video ref={videoRef} />
+            <button onClick={takeSnapshot} className='take'></button>
+
+            <canvas ref={photoRef} className={hasPhoto ? 'hasPhoto' : ''} />
+            <button
+              onClick={closePhoto}
+              className={`deletePhoto ${hasPhoto ? 'hasPhoto' : ''}`}
+            ></button>
+          </>
+        )}
       </div>
     </>
   )

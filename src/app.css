@@ -3,9 +3,85 @@
   padding: 0;
 }
 
+body {
+  background: #24292f;
+}
+
 .container {
   max-width: 1300px;
   margin: 0 auto;
+  padding: 30px 0;
+}
+
+button {
+  border: none;
+  margin: 36px auto;
+  display: block;
+  cursor: pointer;
+  background: #fff;
+}
+
+.start-camera {
+  transition: box-shadow 0.5s;
+  padding: 15px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.start-camera:hover {
+  box-shadow: 0 0 8px 0px #9f9f9f78;
+}
+
+.take {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  box-shadow: 0 0 0px 9px #9f9f9f78;
+  transition: box-shadow 0.5s;
+}
+
+.take:active {
+  box-shadow: 0 0 0px 15px #9f9f9f6b;
+}
+
+.deletePhoto {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  transition: box-shadow 0.5s;
+  display: none;
+}
+
+.deletePhoto:active {
+  box-shadow: 0 0 0px 15px #9f9f9f6b;
+}
+
+.deletePhoto:before,
+.deletePhoto:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  display: block;
+  background: #24292f;
+}
+
+.deletePhoto:before {
+  top: 23px;
+  left: 11px;
+  transform: rotate(45deg);
+}
+
+.deletePhoto:after {
+  top: 23px;
+  right: 9px;
+  transform: rotate(-45deg);
+}
+
+.deletePhoto.hasPhoto {
+  display: block;
 }
 
 @media (max-width: 576px) {

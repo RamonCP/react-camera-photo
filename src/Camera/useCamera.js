@@ -1,6 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 
 const useCamera = () => {
+  const [hasPhoto, setHasPhoto] = useState(false)
+  const [startCamera, setStartCamera] = useState(false)
   const videoRef = useRef(null)
   const photoRef = useRef(null)
   const config = {
@@ -15,13 +17,19 @@ const useCamera = () => {
 
     navigator.mediaDevices
       .getUserMedia(config)
-      .then((stream) => {
-        let video = videoRef.current
-        video.srcObject = stream
-        video.play()
-      })
-      .catch((err) => console.error(err))
+      .then(handleGetVideoSuccess)
+      .catch(handleGetVideoError)
   }
+
+  const handleGetVideoSuccess = (stream) => {
+    setStartCamera(true)
+
+    let video = videoRef.current
+    video.srcObject = stream
+    video.play()
+  }
+
+  const handleGetVideoError = (err) => console.error(err)
 
   const takeSnapshot = () => {
     const video = videoRef.current
@@ -34,6 +42,7 @@ const useCamera = () => {
     ctx.drawImage(video, 0, 0, 680, 480)
 
     const base64 = photo.toDataURL('image/jpeg')
+    setHasPhoto(true)
 
     console.log(base64)
   }
@@ -43,18 +52,22 @@ const useCamera = () => {
     const ctx = photo.getContext('2d')
 
     ctx.clearRect(0, 0, photo.width, photo.height)
+    setHasPhoto(false)
   }
 
   const detectMobileDevice = () => {
     return window.innerWidth <= 800 && window.innerHeight <= 600
   }
 
-  useEffect(() => {
-    getVideo()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videoRef])
-
-  return { getVideo, takeSnapshot, closePhoto, videoRef, photoRef }
+  return {
+    getVideo,
+    takeSnapshot,
+    closePhoto,
+    startCamera,
+    hasPhoto,
+    videoRef,
+    photoRef
+  }
 }
 
 export default useCamera

@@ -3,6 +3,19 @@ canvas {
   width: 680px;
   margin: 0 auto;
   display: block;
+  border-radius: 7px;
+  box-shadow: 0 0 10px 1px #1c1e20;
+}
+
+canvas {
+  height: 0;
+  box-shadow: none;
+  transition: height 0.3s ease-in-out;
+}
+
+canvas.hasPhoto {
+  height: auto;
+  box-shadow: 0 0 10px 1px #1c1e20;
 }
 
 @media (max-width: 576px) {
