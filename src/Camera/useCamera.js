@@ -3,13 +3,18 @@ import { useEffect, useRef } from 'react'
 const useCamera = () => {
   const videoRef = useRef(null)
   const photoRef = useRef(null)
+  const config = {
+    audio: false,
+    video: { facingMode: 'user' } //{ exact: 'environment' }
+  }
 
   const getVideo = async () => {
+    config.video.facingMode = detectMobileDevice()
+      ? { exact: 'environment' }
+      : 'user'
+
     navigator.mediaDevices
-      .getUserMedia({
-        video: true,
-        audio: false
-      })
+      .getUserMedia(config)
       .then((stream) => {
         let video = videoRef.current
         video.srcObject = stream
@@ -38,6 +43,10 @@ const useCamera = () => {
     const ctx = photo.getContext('2d')
 
     ctx.clearRect(0, 0, photo.width, photo.height)
+  }
+
+  const detectMobileDevice = () => {
+    return window.innerWidth <= 800 && window.innerHeight <= 600
   }
 
   useEffect(() => {
