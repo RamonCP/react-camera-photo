@@ -1,18 +1,19 @@
-import camera from './camera'
+import useCamera from './Camera/useCamera'
+import './Camera/style.css'
+import './app.css'
 
 function App() {
-  const startCamera = () => {
-    camera.startCamera()
-  }
-
-  const takeAPhoto = () => {
-    camera.takeSnapshot()
-  }
+  const { getVideo, takeSnapshot, closePhoto, videoRef, photoRef } = useCamera()
 
   return (
     <>
-      <button onClick={startCamera}>Start Camera</button>
-      <button onClick={takeAPhoto}>Take a photo</button>
+      <div className='container'>
+        <button onClick={getVideo}>Start Camera</button>
+        <button onClick={takeSnapshot}>Take a photo</button>
+        <button onClick={closePhoto}>Close photo</button>
+        <video ref={videoRef} />
+        <canvas ref={photoRef} />
+      </div>
     </>
   )
 }

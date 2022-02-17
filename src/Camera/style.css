@@ -1,0 +1,13 @@
+video,
+canvas {
+  width: 680px;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  video,
+  canvas {
+    width: 100%;
+  }
+}
