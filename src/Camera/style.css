@@ -1,6 +1,7 @@
 video,
 canvas {
-  width: 680px;
+  width: 100%;
+  max-width: 680px;
   margin: 0 auto;
   display: block;
   border-radius: 7px;
@@ -14,7 +15,7 @@ canvas {
 }
 
 canvas.hasPhoto {
-  height: 450px;
+  height: auto;
   box-shadow: 0 0 10px 1px #1c1e20;
 }
 
