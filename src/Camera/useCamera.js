@@ -51,6 +51,7 @@ const useCamera = () => {
 
   useEffect(() => {
     getVideo()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoRef])
 
   return { getVideo, takeSnapshot, closePhoto, videoRef, photoRef }
