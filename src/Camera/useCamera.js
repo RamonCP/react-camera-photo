@@ -7,7 +7,7 @@ const useCamera = () => {
   const photoRef = useRef(null)
   const config = {
     audio: false,
-    video: { facingMode: 'user' } //{ exact: 'environment' }
+    video: { width: 1980, height: 1080, facingMode: 'user' } //{ exact: 'environment' }
   }
 
   const getVideo = async () => {
@@ -33,7 +33,7 @@ const useCamera = () => {
 
   const takeSnapshot = () => {
     const width = 680
-    const height = 450
+    const height = width / (16 / 9)
 
     const video = videoRef.current
     const photo = photoRef.current
