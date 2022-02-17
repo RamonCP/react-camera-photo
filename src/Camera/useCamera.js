@@ -33,7 +33,7 @@ const useCamera = () => {
 
   const takeSnapshot = () => {
     const width = 680
-    const height = 382
+    const height = 480
 
     const video = videoRef.current
     const photo = photoRef.current
