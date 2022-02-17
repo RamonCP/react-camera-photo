@@ -7,7 +7,7 @@ const useCamera = () => {
   const photoRef = useRef(null)
   const config = {
     audio: false,
-    video: { facingMode: 'user' } //{ exact: 'environment' }
+    video: { width: 1980, height: 1080, facingMode: 'user' } //{ exact: 'environment' }
   }
 
   const getVideo = async () => {
@@ -32,14 +32,17 @@ const useCamera = () => {
   const handleGetVideoError = (err) => console.error(err)
 
   const takeSnapshot = () => {
+    const width = 680
+    const height = width / (16 / 9)
+
     const video = videoRef.current
     const photo = photoRef.current
 
-    photo.width = 680
-    photo.height = 480
+    photo.width = width
+    photo.height = height
 
     const ctx = photo.getContext('2d')
-    ctx.drawImage(video, 0, 0, 680, 480)
+    ctx.drawImage(video, 0, 0, width, height)
 
     const base64 = photo.toDataURL('image/jpeg')
     setHasPhoto(true)
