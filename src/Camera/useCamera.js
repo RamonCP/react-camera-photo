@@ -7,7 +7,7 @@ const useCamera = () => {
   const photoRef = useRef(null)
   const config = {
     audio: false,
-    video: { facingMode: 'user' } //{ exact: 'environment' }
+    video: { width: 1980, height: 1080, facingMode: 'user' } //{ exact: 'environment' }
   }
 
   const getVideo = async () => {
