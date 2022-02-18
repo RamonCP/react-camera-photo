@@ -19,7 +19,7 @@ canvas {
 }
 
 canvas.hasPhoto {
-  height: auto;
+  height: 382px;
   box-shadow: 0 0 10px 1px #1c1e20;
 
   aspect-ratio: 4/3;
