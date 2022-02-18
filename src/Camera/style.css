@@ -9,7 +9,7 @@ canvas {
 }
 
 video {
-  height: auto;
+  height: 382px;
 }
 
 canvas {
@@ -24,18 +24,30 @@ canvas.hasPhoto {
 }
 
 @media (max-width: 576px) {
+  video {
+    height: 259px;
+  }
+
   canvas.hasPhoto {
     height: 259px;
   }
 }
 
 @media (max-width: 425px) {
+  video {
+    height: 211px;
+  }
+
   canvas.hasPhoto {
     height: 211px;
   }
 }
 
 @media (max-width: 375px) {
+  video {
+    height: 181px;
+  }
+
   canvas.hasPhoto {
     height: 181px;
   }
