@@ -9,6 +9,10 @@ canvas {
   aspect-ratio: 16 / 9;
 }
 
+video {
+  height: 382px;
+}
+
 canvas {
   height: 0;
   box-shadow: none;
@@ -16,13 +20,36 @@ canvas {
 }
 
 canvas.hasPhoto {
-  height: auto;
+  height: 382px;
   box-shadow: 0 0 10px 1px #1c1e20;
 }
 
 @media (max-width: 576px) {
-  video,
-  canvas {
-    width: 100%;
+  video {
+    height: 259px;
+  }
+
+  canvas.hasPhoto {
+    height: 259px;
+  }
+}
+
+@media (max-width: 425px) {
+  video {
+    height: 211px;
+  }
+
+  canvas.hasPhoto {
+    height: 211px;
+  }
+}
+
+@media (max-width: 375px) {
+  video {
+    height: 181px;
+  }
+
+  canvas.hasPhoto {
+    height: 181px;
   }
 }

@@ -84,7 +84,7 @@ button {
   display: block;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 800px) {
   .container {
     max-width: 90%;
   }
