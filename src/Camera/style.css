@@ -9,7 +9,7 @@ canvas {
 }
 
 video {
-  height: 382px;
+  height: 100%;
 }
 
 canvas {
@@ -19,10 +19,12 @@ canvas {
 }
 
 canvas.hasPhoto {
-  height: 382px;
+  height: 100%;
   box-shadow: 0 0 10px 1px #1c1e20;
-}
 
+  /* aspect-ratio: 4/3; */
+}
+/* 
 @media (max-width: 576px) {
   video {
     height: 259px;
@@ -51,4 +53,4 @@ canvas.hasPhoto {
   canvas.hasPhoto {
     height: 181px;
   }
-}
+} */
