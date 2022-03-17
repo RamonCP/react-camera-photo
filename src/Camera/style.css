@@ -22,7 +22,7 @@ canvas.hasPhoto {
   height: 382px;
   box-shadow: 0 0 10px 1px #1c1e20;
 
-  aspect-ratio: 4/3;
+  /* aspect-ratio: 4/3; */
 }
 /* 
 @media (max-width: 576px) {

@@ -84,6 +84,11 @@ button {
   display: block;
 }
 
+img {
+  height: 800px;
+  width: 300px;
+}
+
 @media (max-width: 800px) {
   .container {
     max-width: 90%;
