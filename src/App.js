@@ -26,6 +26,7 @@ function App() {
             <button onClick={takeSnapshot} className='take'></button>
 
             <canvas ref={photoRef} className={hasPhoto ? 'hasPhoto' : ''} />
+
             <button
               onClick={closePhoto}
               className={`deletePhoto ${hasPhoto ? 'hasPhoto' : ''}`}
